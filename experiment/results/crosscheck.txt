@@ -1,0 +1,5 @@
+PASS: 40427 model/production comparisons (height, size, insert comparisons, inorder).
+Includes all 40,320 distinct-key n=8 permutations, 100 seeded full-CSV random permutations,
+4 full-CSV references and 3 edge cases.
+PASS: actual RankingTreeServer with actual Competitor CSV input: size=3166, height=42;
+3166 output rows sorted by time, ranks=1..3166.

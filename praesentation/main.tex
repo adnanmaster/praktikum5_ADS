@@ -1,0 +1,42 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\hypersetup{pdftitle={Rangliste mit einem binaeren Suchbaum},pdfauthor={Projektteam},colorlinks=true,urlcolor=Teal}
+\definecolor{Navy}{HTML}{14243B}
+\definecolor{Teal}{HTML}{087F8C}
+\definecolor{Amber}{HTML}{E9A23B}
+\definecolor{Paper}{HTML}{F7F9FC}
+\definecolor{Muted}{HTML}{526477}
+\setbeamercolor{normal text}{fg=Navy,bg=white}
+\setbeamercolor{structure}{fg=Teal}
+\setbeamercolor{frametitle}{fg=Navy,bg=white}
+\setbeamercolor{title}{fg=white,bg=Navy}
+\setbeamercolor{block title}{fg=Teal,bg=Paper}
+\setbeamercolor{block body}{fg=Navy,bg=Paper}
+\setbeamertemplate{blocks}[default]
+\setbeamertemplate{headline}{}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamertemplate{frametitle}{\vspace{0.15cm}\insertframetitle\par\vspace{0.12cm}{\color{Teal}\rule{\textwidth}{0.6pt}}}
+\setbeamertemplate{footline}{\leavevmode\hbox{\begin{beamercolorbox}[wd=.84\paperwidth,ht=2.6ex,dp=1.3ex,leftskip=.5cm]{normal text}\color{Muted}\tiny ADS -- Praktikum 05\end{beamercolorbox}\begin{beamercolorbox}[wd=.16\paperwidth,ht=2.6ex,dp=1.3ex,rightskip=.5cm plus1fil]{normal text}\hfill\color{Muted}\tiny\insertframenumber\end{beamercolorbox}}}
+\setbeamersize{text margin left=0.65cm,text margin right=0.65cm}
+\lstset{language=Java,basicstyle=\ttfamily\scriptsize,keywordstyle=\color{Teal}\bfseries,commentstyle=\color{Muted},stringstyle=\color{Teal},showstringspaces=false,columns=fullflexible,keepspaces=true,breaklines=true,backgroundcolor=\color{Paper},frame=none,xleftmargin=.12cm,xrightmargin=.12cm,aboveskip=.15cm,belowskip=.1cm}
+\title{Rangliste mit einem\\binären Suchbaum}
+\subtitle{Aufgabe 3 und ein Experiment zur Einfügereihenfolge}
+\author{Name 1 \& Name 2}
+\institute{ZHAW -- Algorithmen und Datenstrukturen}
+\date{}
+\begin{document}
+\input{slides.tex}
+\end{document}

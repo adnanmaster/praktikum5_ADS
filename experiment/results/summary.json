@@ -1,0 +1,458 @@
+{
+  "source": {
+    "path": "src/ch/zhaw/ads/RangZuerich.csv",
+    "encoding": "UTF-8",
+    "sha256": "8083c6d3897d5f3b3add6041f9437e010d99cf5e9d3ffe9989c418a8ba126a9d",
+    "n": 3166,
+    "distinct_times": 2459,
+    "duplicate_time_entries_beyond_first": 707,
+    "maximum_time_multiplicity": 5,
+    "distinct_csv_rows": 3165,
+    "minimum_time": "02:11:31",
+    "maximum_time": "05:33:39",
+    "log10_labelled_row_permutations": 9709.790569841338,
+    "log10_distinct_csv_row_sequences": 9709.489539845674,
+    "log10_distinct_key_sequences": 9472.849140587183
+  },
+  "method": {
+    "seed": 20261019,
+    "rng": "java.util.Random",
+    "shuffle": "Fisher-Yates",
+    "insertion_rule": "key <= current -> left; key > current -> right",
+    "height_definition": "Number of levels; empty=0, leaf=1",
+    "cost_definition": "One key comparison per visited existing node while inserting; sum of insertion depths",
+    "traversal_visits_per_full_run": 3166,
+    "timing": "No wall-clock times were measured",
+    "quantile_method": "Linear interpolation, Hyndman/Fan type 7",
+    "ci_method": "Monte-Carlo mean +/-1.96 * sample SD / sqrt(trials); normal approximation"
+  },
+  "full_random": {
+    "height": {
+      "count": 10000,
+      "min": 22,
+      "max": 38,
+      "mean": 26.6472,
+      "median": 26.0,
+      "population_stddev": 2.017060276739394,
+      "quantiles": {
+        "0.025": 23.0,
+        "0.25": 25.0,
+        "0.5": 26.0,
+        "0.75": 28.0,
+        "0.975": 31.0
+      },
+      "mean_standard_error": 0.020171611373178373,
+      "mean_95pct_normal_ci": [
+        26.607663641708573,
+        26.68673635829143
+      ]
+    },
+    "comparisons": {
+      "count": 10000,
+      "min": 37135,
+      "max": 55792,
+      "mean": 42043.5089,
+      "median": 41772.0,
+      "population_stddev": 2006.2658129272875,
+      "quantiles": {
+        "0.025": 38944.975,
+        "0.25": 40594.0,
+        "0.5": 41772.0,
+        "0.75": 43175.0,
+        "0.975": 46675.1
+      },
+      "mean_standard_error": 20.063661337420577,
+      "mean_95pct_normal_ci": [
+        42004.18412377866,
+        42082.833676221344
+      ]
+    }
+  },
+  "references": {
+    "original": {
+      "height": 42,
+      "comparisons": 75599
+    },
+    "ascending": {
+      "height": 2459,
+      "comparisons": 3822922
+    },
+    "descending": {
+      "height": 3166,
+      "comparisons": 5010195
+    },
+    "median_first": {
+      "height": 14,
+      "comparisons": 30840
+    }
+  },
+  "unrestricted_binary_tree_height_lower_bound": 12,
+  "median_reference_is_proven_global_optimum": false,
+  "exact8": {
+    "selected_times": [
+      "02:11:31",
+      "03:10:05",
+      "03:25:15",
+      "03:37:11",
+      "03:49:16",
+      "04:02:37",
+      "04:23:29",
+      "05:33:39"
+    ],
+    "selection": "8 equally spaced indices in sorted distinct CSV times, including extremes",
+    "metrics": {
+      "height": {
+        "count": 40320,
+        "min": 4,
+        "max": 8,
+        "mean": 5.017460317460317,
+        "median": 5.0,
+        "population_stddev": 0.8259750721746193,
+        "quantiles": {
+          "0.025": 4.0,
+          "0.25": 4.0,
+          "0.5": 5.0,
+          "0.75": 6.0,
+          "0.975": 7.0
+        }
+      },
+      "comparisons": {
+        "count": 40320,
+        "min": 13,
+        "max": 28,
+        "mean": 16.92142857142857,
+        "median": 16.0,
+        "population_stddev": 2.8624860751822436,
+        "quantiles": {
+          "0.025": 13.0,
+          "0.25": 15.0,
+          "0.5": 16.0,
+          "0.75": 18.25,
+          "0.975": 24.0
+        }
+      }
+    },
+    "theoretical_mean_comparisons": 16.92142857142857,
+    "height_frequencies": {
+      "4": 11360,
+      "5": 18816,
+      "6": 8352,
+      "7": 1664,
+      "8": 128
+    },
+    "comparison_frequencies": {
+      "13": 1680,
+      "14": 7280,
+      "15": 6048,
+      "16": 8176,
+      "17": 1392,
+      "18": 5664,
+      "19": 2976,
+      "20": 2400,
+      "21": 1120,
+      "22": 1760,
+      "23": 544,
+      "24": 640,
+      "25": 256,
+      "26": 192,
+      "27": 64,
+      "28": 128
+    }
+  },
+  "scaling": {
+    "64": {
+      "height": {
+        "count": 100,
+        "min": 9,
+        "max": 16,
+        "mean": 11.66,
+        "median": 11.0,
+        "population_stddev": 1.4779715829473854,
+        "quantiles": {
+          "0.025": 9.475,
+          "0.25": 11.0,
+          "0.5": 11.0,
+          "0.75": 13.0,
+          "0.975": 15.0
+        },
+        "mean_standard_error": 0.14854173307406396,
+        "mean_95pct_normal_ci": [
+          11.368858203174835,
+          11.951141796825166
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 303,
+        "max": 467,
+        "mean": 362.55,
+        "median": 355.5,
+        "population_stddev": 35.999270825948685,
+        "quantiles": {
+          "0.025": 310.95,
+          "0.25": 339.0,
+          "0.5": 355.5,
+          "0.75": 378.0,
+          "0.975": 450.09999999999997
+        },
+        "mean_standard_error": 3.618062850183615,
+        "mean_95pct_normal_ci": [
+          355.4585968136401,
+          369.6414031863599
+        ]
+      }
+    },
+    "128": {
+      "height": {
+        "count": 100,
+        "min": 11,
+        "max": 21,
+        "mean": 14.09,
+        "median": 14.0,
+        "population_stddev": 1.6192282112166896,
+        "quantiles": {
+          "0.025": 12.0,
+          "0.25": 13.0,
+          "0.5": 14.0,
+          "0.75": 15.0,
+          "0.975": 17.0
+        },
+        "mean_standard_error": 0.16273855838073037,
+        "mean_95pct_normal_ci": [
+          13.771032425573768,
+          14.408967574426232
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 754,
+        "max": 1153,
+        "mean": 883.1,
+        "median": 873.0,
+        "population_stddev": 73.0334854707072,
+        "quantiles": {
+          "0.025": 785.475,
+          "0.25": 827.0,
+          "0.5": 873.0,
+          "0.75": 928.5,
+          "0.975": 1039.725
+        },
+        "mean_standard_error": 7.340141467824497,
+        "mean_95pct_normal_ci": [
+          868.713322723064,
+          897.486677276936
+        ]
+      }
+    },
+    "256": {
+      "height": {
+        "count": 100,
+        "min": 14,
+        "max": 22,
+        "mean": 16.97,
+        "median": 17.0,
+        "population_stddev": 1.5776881821196482,
+        "quantiles": {
+          "0.025": 14.475,
+          "0.25": 16.0,
+          "0.5": 17.0,
+          "0.75": 18.0,
+          "0.975": 20.52499999999999
+        },
+        "mean_standard_error": 0.1585636283717809,
+        "mean_95pct_normal_ci": [
+          16.65921528839131,
+          17.28078471160869
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 1888,
+        "max": 2910,
+        "mean": 2144.78,
+        "median": 2117.0,
+        "population_stddev": 162.7272306653069,
+        "quantiles": {
+          "0.025": 1895.9,
+          "0.25": 2043.75,
+          "0.5": 2117.0,
+          "0.75": 2231.0,
+          "0.975": 2497.149999999999
+        },
+        "mean_standard_error": 16.35470203910419,
+        "mean_95pct_normal_ci": [
+          2112.724784003356,
+          2176.8352159966444
+        ]
+      }
+    },
+    "512": {
+      "height": {
+        "count": 100,
+        "min": 16,
+        "max": 25,
+        "mean": 19.42,
+        "median": 19.0,
+        "population_stddev": 1.6862977198585072,
+        "quantiles": {
+          "0.025": 17.0,
+          "0.25": 18.0,
+          "0.5": 19.0,
+          "0.75": 21.0,
+          "0.975": 22.0
+        },
+        "mean_standard_error": 0.1694792976243185,
+        "mean_95pct_normal_ci": [
+          19.087820576656338,
+          19.752179423343666
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 4327,
+        "max": 6161,
+        "mean": 4926.42,
+        "median": 4894.5,
+        "population_stddev": 322.97653722832564,
+        "quantiles": {
+          "0.025": 4460.575,
+          "0.25": 4684.75,
+          "0.5": 4894.5,
+          "0.75": 5124.0,
+          "0.975": 5592.5
+        },
+        "mean_standard_error": 32.460363335594195,
+        "mean_95pct_normal_ci": [
+          4862.797687862236,
+          4990.042312137764
+        ]
+      }
+    },
+    "1024": {
+      "height": {
+        "count": 100,
+        "min": 19,
+        "max": 29,
+        "mean": 22.27,
+        "median": 22.0,
+        "population_stddev": 1.9018675032714556,
+        "quantiles": {
+          "0.025": 19.0,
+          "0.25": 21.0,
+          "0.5": 22.0,
+          "0.75": 23.0,
+          "0.975": 26.0
+        },
+        "mean_standard_error": 0.1911448760400436,
+        "mean_95pct_normal_ci": [
+          21.895356042961513,
+          22.644643957038486
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 10075,
+        "max": 13174,
+        "mean": 11341.75,
+        "median": 11343.0,
+        "population_stddev": 669.7448823992611,
+        "quantiles": {
+          "0.025": 10200.4,
+          "0.25": 10771.0,
+          "0.5": 11343.0,
+          "0.75": 11802.0,
+          "0.975": 12467.45
+        },
+        "mean_standard_error": 67.31189333875912,
+        "mean_95pct_normal_ci": [
+          11209.818689056032,
+          11473.681310943968
+        ]
+      }
+    },
+    "2048": {
+      "height": {
+        "count": 100,
+        "min": 21,
+        "max": 31,
+        "mean": 24.76,
+        "median": 24.0,
+        "population_stddev": 1.95509590557599,
+        "quantiles": {
+          "0.025": 22.0,
+          "0.25": 23.0,
+          "0.5": 24.0,
+          "0.75": 26.0,
+          "0.975": 29.0
+        },
+        "mean_standard_error": 0.19649453175623238,
+        "mean_95pct_normal_ci": [
+          24.374870717757787,
+          25.145129282242216
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 22722,
+        "max": 29395,
+        "mean": 25359.6,
+        "median": 25262.5,
+        "population_stddev": 1246.973816886305,
+        "quantiles": {
+          "0.025": 23339.85,
+          "0.25": 24521.25,
+          "0.5": 25262.5,
+          "0.75": 25869.0,
+          "0.975": 28619.199999999993
+        },
+        "mean_standard_error": 125.32558406088526,
+        "mean_95pct_normal_ci": [
+          25113.961855240665,
+          25605.238144759332
+        ]
+      }
+    },
+    "3166": {
+      "height": {
+        "count": 100,
+        "min": 22,
+        "max": 33,
+        "mean": 26.63,
+        "median": 26.5,
+        "population_stddev": 2.1893149613520664,
+        "quantiles": {
+          "0.025": 23.0,
+          "0.25": 25.0,
+          "0.5": 26.5,
+          "0.75": 28.0,
+          "0.975": 31.52499999999999
+        },
+        "mean_standard_error": 0.22003443256715874,
+        "mean_95pct_normal_ci": [
+          26.19873251216837,
+          27.06126748783163
+        ]
+      },
+      "comparisons": {
+        "count": 100,
+        "min": 37963,
+        "max": 50896,
+        "mean": 41751.18,
+        "median": 41263.0,
+        "population_stddev": 2346.0113144654697,
+        "quantiles": {
+          "0.025": 38413.425,
+          "0.25": 39978.25,
+          "0.5": 41263.0,
+          "0.75": 43021.0,
+          "0.975": 47248.149999999994
+        },
+        "mean_standard_error": 235.78300860637677,
+        "mean_95pct_normal_ci": [
+          41289.045303131505,
+          42213.314696868496
+        ]
+      }
+    }
+  }
+}

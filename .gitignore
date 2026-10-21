@@ -1,0 +1,26 @@
+# Local Gradle caches and generated build output
+/.gradle/
+/.gradle-user-home/
+/build/
+
+# Compiled experiment classes and Python caches
+/experiment/classes/
+__pycache__/
+*.pyc
+
+# Temporary lock files created while documents are open
+~$*
+
+# LaTeX intermediate files and local visual checks
+# Keep the final PDFs and the experiment figures under version control.
+/praesentation/.qa/
+/praesentation/*.aux
+/praesentation/*.log
+/praesentation/*.nav
+/praesentation/*.out
+/praesentation/*.snm
+/praesentation/*.toc
+/praesentation/*.vrb
+/praesentation/*.fls
+/praesentation/*.fdb_latexmk
+/praesentation/*.synctex.gz

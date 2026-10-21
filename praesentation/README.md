@@ -1,6 +1,6 @@
 # LaTeX-Präsentation
 
-Die Präsentation behandelt nur Aufgabe 3, mit einem auf Aufgabe 4 aufbauenden Experiment. Acht Folien sind für ungefähr 6 Minuten 30 Sekunden ausgelegt.
+Die Präsentation behandelt nur Aufgabe 3, mit einem auf Aufgabe 4 aufbauenden Experiment. Acht Folien sind für ungefähr 7 Minuten ausgelegt. Folie 4 verbindet die genaue Vergleichszahl mit der quadratischen Laufzeitklasse; Folie 6 zeigt die Rechnungen für 13 und 28 Vergleiche.
 
 ## Dateien
 

@@ -90,18 +90,22 @@ Aufbau & $\Theta(n\log n)$ & erwartet $\Theta(n\log n)$ & $\Theta(n^2)$\\
 Inorder-Ausgabe & $\Theta(n)$ & $\Theta(n)$ & $\Theta(n)$\\
 \bottomrule
 \end{tabular}
-\par\vspace{.45cm}
-\begin{columns}[c,onlytextwidth]
-\column{.52\textwidth}
-{\large Einfügen kostet $O(h)$.}\par\smallskip
-\small Die Summe der Einfügetiefen zählt die Vergleiche beim Aufbau.
-\column{.42\textwidth}
-{\color{Teal}\large Gesamt: Aufbau + Ausgabe}\par\smallskip
-\small Speicher: $\Theta(n)$ für den Baum,\newline zusätzlich $O(h)$ Rekursionsstack.
-\end{columns}
-\par\vspace{.35cm}
+\par\vspace{.25cm}
+\raggedright
+\textbf{Worst Case bei acht Werten:}\quad $0+1+2+3+4+5+6+7=\mathbf{28}$
+\par\smallskip
+\[
+ C_{\mathrm{worst}}(n)=\frac{n(n-1)}{2}
+ =\frac{1}{2}n^2-\frac{1}{2}n
+ \quad\Longrightarrow\quad \color{Teal}\boxed{\Theta(n^2)}
+\]
+\vspace{-.15cm}
+\small\textcolor{Teal}{\textbf{Die Laufzeitklasse beschreibt das Wachstum.}}\quad Exakte Anzahl bei $n=8$: 28.
+\par\smallskip
+\scriptsize Einfügen: $O(h)$. Gesamtaufwand: Aufbau + Inorder. Speicher: $\Theta(n)$ und $O(h)$ Rekursionsstack.
+\par\vspace{.18cm}
 \raggedright\tiny $^*$Klassische Erwartung für verschiedene Schlüssel in gleichverteilt zufälliger Reihenfolge. CSV-Zeitgleichheiten untersuchen wir empirisch. Konstant grosse Zeitfelder; Ausgabetext linear in seiner Länge. Theorie: Sedgewick/Wayne, \href{https://algs4.cs.princeton.edu/32bst/}{Binary Search Trees}.
-\note{Person 1, ca. 50 Sekunden. Ein einzelnes Einfügen folgt einem Pfad und kostet höchstens proportional zur Höhe. Bei einem flachen Baum ist die Höhe logarithmisch, bei einer Kette linear. Über alle n Einfügungen ergibt das n log n beziehungsweise n Quadrat. Inorder besucht immer n Teilnehmer, unabhängig von der Form. Das ist die wichtige Trennung: Der teure Fall entsteht beim Aufbau. Die klassischen Erwartungswerte setzen verschiedene Schlüssel in zufälliger Reihenfolge voraus. Unsere CSV enthält auch gleiche Zeiten, deshalb messen wir deren tatsächliche Wirkung. Übergabe an Person 2.}
+\note{Person 1, ca. 65 Sekunden. Ein einzelnes Einfügen folgt einem Pfad und kostet O von h. In einem flachen Baum ergibt der gesamte Aufbau n log n. Im schlechtesten Fall entsteht eine Kette: Die erste Einfügung braucht null Vergleiche, die zweite einen, die letzte bei acht Werten sieben. Zusammen sind das 28. Allgemein ist die Summe n mal n minus eins durch zwei, also ein halbes n Quadrat minus ein halbes n. Für die Laufzeitklasse zählt das dominierende quadratische Wachstum. Deshalb steht hier Theta von n Quadrat, obwohl die genaue Vergleichszahl bei acht Werten 28 beträgt und nicht 64. Inorder besucht danach immer jeden Teilnehmer genau einmal. Der klassische Average Case setzt verschiedene Schlüssel in zufälliger Reihenfolge voraus. Übergabe an Person 2.}
 \end{frame}
 
 \begin{frame}{Experiment: vollständig und als Stichprobe}
@@ -126,10 +130,18 @@ Inorder-Ausgabe & $\Theta(n)$ & $\Theta(n)$ & $\Theta(n)$\\
 
 \begin{frame}{Acht Teilnehmer: die vollständige Verteilung}
 \centering
-\includegraphics[width=.96\textwidth,height=5.25cm,keepaspectratio]{images/exhaustive_heights.pdf}
+\includegraphics[width=.96\textwidth,height=4.9cm,keepaspectratio]{images/exhaustive_heights.pdf}
 \par\vspace{.1cm}
-\small Einfügevergleiche: Best Case \textbf{13}, exakter Mittelwert \textbf{16,92}, Worst Case \textbf{28}.
-\note{Person 2, ca. 45 Sekunden. Hier wurde nichts hochgerechnet. Links zählt jeder Balken, wie viele der 40320 Einfügereihenfolgen diese Höhe ergeben. Vier Ebenen sind für acht Knoten mindestens nötig, denn drei Ebenen bieten nur sieben Plätze. Acht Ebenen bedeuten eine Kette. Rechts sehen wir den Aufwand: 13 Vergleiche im besten, im Mittel 16,92 und 28 im schlechtesten Fall. Das sind exakte Werte für diese acht verschiedenen Schlüssel.}
+\begin{columns}[T,onlytextwidth]
+\column{.54\textwidth}
+\small\textcolor{Teal}{\textbf{Best Case: kurze Einfügewege}}\par\smallskip
+$0+1+1+2+2+2+2+3=\mathbf{13}$
+\column{.42\textwidth}
+\small\textcolor{Amber}{\textbf{Worst Case: eine Kette}}\par\smallskip
+$0+1+\cdots+7=\mathbf{28}$\par\smallskip
+\scriptsize Wachstum für grösseres $n$: $\Theta(n^2)$.
+\end{columns}
+\note{Person 2, ca. 60 Sekunden. Links zeigt die Grafik die Baumhöhen, rechts die Anzahl der Einfügevergleiche. Jede Zahl in den Summen unten steht für die Vergleiche einer einzelnen Einfügung. Im besten Fall braucht die Wurzel null, ihre zwei Kinder je einen und die vier Knoten der nächsten Ebene je zwei Vergleiche. Der achte Knoten liegt eine Ebene tiefer und braucht drei. Das ergibt 13. Im Worst Case entsteht eine Kette mit null bis sieben Vergleichen, insgesamt 28. Wie auf der Laufzeitfolie erklärt, wächst diese Summe quadratisch. Der Mittelwert über alle 40320 Reihenfolgen beträgt exakt 682272 geteilt durch 40320, gerundet 16,92. Weil jede Reihenfolge enthalten ist, sind das genaue Ergebnisse und keine Stichprobenschätzungen.}
 \end{frame}
 
 \begin{frame}{Die ganze CSV: Höhe und Einfügeaufwand}

@@ -1,6 +1,6 @@
 # Sprechtext für zwei Personen
 
-Geplant sind acht Folien und ungefähr 6 Minuten 30 Sekunden. Person 1 übernimmt Folien 1–4, Person 2 Folien 5–8. Die Texte sind eine Formulierungshilfe. Sprecht frei und zeigt jeweils auf den gerade erklärten Code oder die Grafik.
+Geplant sind acht Folien und ungefähr 7 Minuten. Person 1 übernimmt Folien 1–4, Person 2 Folien 5–8. Die Texte sind eine Formulierungshilfe. Sprecht frei und zeigt jeweils auf den gerade erklärten Code oder die Grafik.
 
 ## Person 1: Theorie, Implementierung und Laufzeit
 
@@ -22,11 +22,15 @@ Rechts erstellen wir die Rangliste. Die Traversierung liefert die Teilnehmer in 
 
 `getAndIncrement()` liefert zuerst den aktuellen Rang und erhöht ihn danach. `AtomicInteger` dient hier als veränderlicher Zähler im Lambda; wir verwenden keine parallele Verarbeitung. Auch gleiche Zeiten erhalten fortlaufende Rangnummern, so wie es die Vorlage und die Tests erwarten.“
 
-### Folie 4 — Laufzeit von Aufbau und Ausgabe (50 Sekunden)
+### Folie 4 — Laufzeit von Aufbau und Ausgabe (65 Sekunden)
 
-„Einfügen folgt einem Pfad durch den Baum und kostet daher höchstens O von h, wobei h die Höhe ist. In einem flachen Baum sind die Wege logarithmisch lang. Für alle Einfügungen ergibt das n log n. Entsteht dagegen eine Kette, wächst der gesamte Aufwand quadratisch.
+„Einfügen folgt einem Pfad durch den Baum und kostet O von h. Bei einem flachen Baum ergibt der gesamte Aufbau n log n.
 
-Die Inorder-Ausgabe bleibt immer linear: Jeder Teilnehmer wird genau einmal besucht. Der Unterschied entsteht also beim Aufbau. Der klassische Average Case setzt verschiedene Schlüssel in zufälliger Reihenfolge voraus. Unsere CSV enthält auch gleiche Zeiten. Deren tatsächlichen Einfluss untersuchen wir im Experiment.
+Im Worst Case entsteht eine Kette. Die erste Einfügung braucht null Vergleiche, die zweite einen und die letzte bei acht Werten sieben. Zusammen sind das 28. Allgemein lautet diese Summe n mal n minus eins durch zwei, also ein halbes n Quadrat minus ein halbes n.
+
+Für die Laufzeitklasse betrachten wir das dominierende quadratische Wachstum. Deshalb steht hier Theta von n Quadrat. Das bedeutet nicht, dass acht Werte genau acht zum Quadrat, also 64 Vergleiche brauchen.
+
+Die Inorder-Ausgabe bleibt immer linear: Jeder Teilnehmer wird genau einmal besucht. Der klassische Average Case setzt verschiedene Schlüssel in zufälliger Reihenfolge voraus.
 
 Damit übergebe ich an meine Teamkollegin beziehungsweise meinen Teamkollegen.“
 
@@ -40,11 +44,15 @@ Für acht verschiedene Zeiten aus der CSV untersuchen wir tatsächlich alle 40�
 
 Wir zählen Vergleiche statt Millisekunden. Das vermeidet Einflüsse durch den Rechner oder das Aufwärmen der Java-Laufzeit. Unser Messmodell wurde gegen den echten Java-Baum geprüft.“
 
-### Folie 6 — Acht Teilnehmer: die vollständige Verteilung (45 Sekunden)
+### Folie 6 — Acht Teilnehmer: die vollständige Verteilung (60 Sekunden)
 
-„Links sehen wir die Baumhöhen über alle Reihenfolgen. Vier Ebenen sind das Minimum: Drei Ebenen haben nur sieben Plätze. Acht Ebenen bedeuten eine Kette.
+„Links sehen wir die Baumhöhen, rechts die Anzahl der Einfügevergleiche. Jede Zahl in den Summen unten steht für die Vergleiche einer einzelnen Einfügung.
 
-Rechts sehen wir die Einfügevergleiche. Im besten Fall sind es 13, im exakten Mittel 16,92 und im schlechtesten Fall 28. Der Best Case und der Worst Case sind hier vollständig erfasst. Es handelt sich also um die genaue Verteilung für diese acht verschiedenen Zeiten, nicht um eine Schätzung.“
+Im besten Fall braucht die Wurzel null Vergleiche. Ihre zwei Kinder brauchen je einen und die vier Knoten der nächsten Ebene je zwei Vergleiche. Der achte Knoten liegt eine Ebene tiefer und braucht drei. Zusammen sind das 13.
+
+Im Worst Case entsteht eine Kette mit null bis sieben Vergleichen pro Einfügung. Zusammen sind das 28. Wie auf der Laufzeitfolie erklärt, wächst diese Summe quadratisch.
+
+Den Mittelwert erhalten wir aus allen 40’320 Reihenfolgen: 682’272 Vergleiche insgesamt geteilt durch 40’320 ergeben gerundet 16,92. Weil jede Reihenfolge enthalten ist, sind das genaue Ergebnisse und keine Stichprobenschätzungen.“
 
 ### Folie 7 — Die ganze CSV: Höhe und Einfügeaufwand (55 Sekunden)
 
@@ -63,6 +71,8 @@ Bei absteigender Reihenfolge muss jeder neue Wert dagegen denselben Ast entlang.
 Die Rangliste ist in allen Fällen korrekt sortiert. Die Einfügereihenfolge bestimmt aber, wie viel Arbeit ihr Aufbau benötigt. Ein selbstbalancierender Baum wäre eine mögliche Weiterentwicklung.“
 
 ## Antworten auf wahrscheinliche Rückfragen
+
+**Warum 28 Vergleiche und nicht 64, obwohl auf der Folie n² steht?** Die exakte Anzahl im Worst Case ist `C(n) = n(n−1)/2 = ½n² − ½n`. Für acht Werte ergibt das `8·7/2 = 28`. Die Laufzeitklasse `Θ(n²)` beschreibt das quadratische Wachstum bei grösserem n. Konstante Faktoren und kleinere Terme verändern diese Klasse nicht. `O(n²)` ist ebenfalls richtig, beschreibt aber nur eine asymptotische obere Schranke; `Θ(n²)` gibt die passende Wachstumsordnung an.
 
 **Was genau bedeutet Höhe?** Hier zählen wir Ebenen: leerer Baum 0, einzelner Knoten 1. Manche Bücher zählen Kanten; ihre Werte sind für nichtleere Bäume um eins kleiner.
 
